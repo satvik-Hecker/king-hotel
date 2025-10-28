@@ -9,11 +9,9 @@ import {
   MapPin,
   Phone,
   Mail,
-  Home,
   DoorOpen,
   ImageIcon,
   Sparkles,
-  PhoneIcon,
   Star,
   ArrowRight,
 } from "lucide-react"
@@ -70,12 +68,10 @@ export default function Footer() {
   ]
 
   const quickLinks = [
-    { label: "Home", href: "/", icon: Home },
     { label: "Rooms", href: "/rooms", icon: DoorOpen },
     { label: "Gallery", href: "/gallery", icon: ImageIcon },
     { label: "Amenities", href: "/amenities", icon: Sparkles },
     { label: "Review Ratings", href: "/reviews", icon: Star },
-    { label: "Contact", href: "/contact", icon: PhoneIcon },
   ]
 
   return (
@@ -89,9 +85,9 @@ export default function Footer() {
       >
         <div className="grid grid-cols-1 gap-8 md:grid-cols-4 lg:gap-12">
           <motion.div variants={itemVariants} className="space-y-4">
-            <h2 className="text-2xl font-bold text-white">King Sukh</h2>
+            <h2 className="text-2xl font-bold text-white">King Sukh <br /> Guest House</h2>
             <p className="text-sm text-slate-300 leading-relaxed">
-              Experience luxury and comfort at our premium guest house. Your perfect getaway awaits.
+              Discover a world of comfort, luxury, and adventure as you explore our curated selection of hotels, making every moment of your getaway truly extraordinary.
             </p>
           </motion.div>
 
@@ -121,34 +117,34 @@ export default function Footer() {
             <ul className="space-y-2">
               <li>
                 <a
-                  href="https://maps.google.com/?q=King+Sukh+Guest+House"
+                  href="https://www.google.com/maps/place/Kingsukh+Guest+House/@23.5862406,86.8597371,17z/data=!4m6!3m5!1s0x39f6e3fdd3ff9ebb:0x517a57e3f93c1807!8m2!3d23.5863324!4d86.8597904!16s%2Fg%2F11srygxjp6?entry=ttu&g_ep=EgoyMDI1MTAyMi4wIKXMDSoASAFQAw%3D%3D"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 text-slate-300 transition-colors duration-200 hover:text-amber-400"
                   aria-label="View our location on Google Maps"
                 >
                   <MapPin className="h-4 w-4 flex-shrink-0" aria-hidden="true" />
-                  <span className="text-sm">123 Luxury Lane, Paradise City</span>
+                  <span className="text-sm">Beside Barshal Water Tank, Manpur,  Barhanti, West Bengal 723156</span>
                 </a>
               </li>
               <li>
                 <a
-                  href="tel:+1234567890"
+                  href="tel:+919007062180"
                   className="inline-flex items-center gap-2 text-slate-300 transition-colors duration-200 hover:text-amber-400"
                   aria-label="Call us"
                 >
                   <Phone className="h-4 w-4 flex-shrink-0" aria-hidden="true" />
-                  <span className="text-sm">+1 (234) 567-890</span>
+                  <span className="text-sm">+91 9007062180</span>
                 </a>
               </li>
               <li>
                 <a
-                  href="mailto:info@kingsukh.com"
+                  href="mailto:kkghosh0099@gmail.com"
                   className="inline-flex items-center gap-2 text-slate-300 transition-colors duration-200 hover:text-amber-400"
                   aria-label="Send us an email"
                 >
                   <Mail className="h-4 w-4 flex-shrink-0" aria-hidden="true" />
-                  <span className="text-sm">info@kingsukh.com</span>
+                  <span className="text-sm">kkghosh0099@gmail.com</span>
                 </a>
               </li>
             </ul>
