@@ -6,6 +6,7 @@ export default function AboutUs() {
   const [positive, setPositive] = useState(0)
   const [years, setYears] = useState(0)
   const [clients, setClients] = useState(0)
+  const [showMore, setShowMore] = useState(false)
 
   useEffect(() => {
     const animate = (target: number, setter: (v: number) => void, duration = 900) => {
@@ -21,9 +22,9 @@ export default function AboutUs() {
       tick()
     }
 
-    animate(98, setPositive, 1200)
-    animate(15, setYears, 1100)
-    animate(25000, setClients, 1400)
+    animate(80, setPositive, 1200)
+    animate(100, setYears, 1100)
+    animate(150, setClients, 1400)
   }, [])
 
   const formatClients = (n: number) => {
@@ -32,73 +33,114 @@ export default function AboutUs() {
   }
 
   return (
-    <section className="max-w-full px-6 md:px-8 py-16  bg-[#ffffff]">
-      <div className="flex flex-col gap-10 items-center ">
-        
+    <section className="max-w-full px-6 md:px-8 py-16 bg-[#ffffff]">
+      <div className="flex flex-col gap-10 items-center">
         <motion.div
-          
           initial={{ opacity: 0, y: 12 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.7 }}
+          className="w-full"
         >
-            <div className="flex gap-24">
-                <div className="flex  gap-1">
-                  <svg
-                    className="w-5 h-5 mt-0.5"
-                    viewBox="0 0 64 64"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
+          <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-8 lg:gap-24 px-6 lg:px-24">
+            <div className="flex items-start gap-3">
+              <svg
+                className="w-5 h-5 mt-0.5"
+                viewBox="0 0 64 64"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <circle cx="32" cy="32" r="22" stroke="black" strokeWidth="6" />
+                <circle cx="32" cy="32" r="13" fill="black" />
+              </svg>
+              <span className="text-[16px] font-mono tracking-wider font-bold text-slate-800 uppercase">
+                About us
+              </span>
+            </div>
+
+            <div className="flex-1 ">
+              <h3 className="text-5xl text-gray-300 max-w-[900px] mx-auto font-mono font-medium text-right">
+                The Best Holidays Start Here!
+              </h3>
+
+              <div className="inline-block mt-4">
+                <p
+                  className={`text-lg font-bold tracking-wider font-mono text-gray-700 max-w-5xl mb-2 transition-all duration-500 ease-in-out ${
+                    showMore ? "line-clamp-none" : "line-clamp-4"
+                  }`}
                 >
-                    <circle cx="32" cy="32" r="22" stroke="black" strokeWidth="6" />
-                    <circle cx="32" cy="32" r="13" fill="black" />
-                </svg>
-                <span className="text-[16px] font-mono tracking-wider font-bold text-slate-800 uppercase">
-                    About us
-                </span>
-                </div>
+                  Embark on a tranquil journey at our Kingsukh Guest House, enveloped by the scenic allure of Biharinath Hill, Baranti Hill, Susunia Hill, Joychandi Hill, Garhpanchkot, Baranti Dam, Maithon Dam, and the captivating Panchat Dam. Revel in the embrace of comfort, relish delightful meals, and unwind in our verdant garden oasis. Your ideal retreat beckons, promising a harmonious blend of nature&apos;s beauty and heartfelt hospitality. Explore the hidden gems of Purulia, creating memories that linger long after your stay.
+                </p>
 
-
-                {/* <span className="text-gray-500 font-medium block text-lg sm:text-xl lg:text-xl mb-1">Since 2016, weve been helping travelers find stays they love — effortlessly.</span> */}
-          {/* <h2 className="text-3xl sm:text-4xl lg:text-5xl leading-tight font-extrabold text-ink mb-6" style={{ fontWeight: 800 }}>
-            we’re about curating unforgettable journeys!
-          </h2> */}
-          <div>
-          <h3 className="text-5xl text-right text-gray-300 max-w-[1000px] font-mono font-medium">The Best Holidays Start Here!</h3>
-          <p className="text-2xl  text-gray-700 max-w-5xl mb-6">
-           Embark on a tranquil journey at our Kingsukh Guest House, enveloped by the scenic allure of Biharinath Hill, Baranti Hill, Susunia Hill, Joychandi Hill, Garhpanchkot, Baranti Dam, Maithon Dam, and the captivating Panchat Dam. Revel in the embrace of comfort, relish delightful meals, and unwind in our verdant garden oasis. Your ideal retreat beckons, promising a harmonious blend of nature&apos;s beauty and heartfelt hospitality. Explore the hidden gems of Purulia, creating memories that linger long after your stay.
-          </p>
-          </div>
-
-          {/* <a
-            href="#"
-            className="inline-flex items-center gap-2 text-sm font-medium text-ink hover:underline"
-            aria-label="Know more about us"
-          >
-            KNOW MORE
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" className="opacity-80">
-              <path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-            </svg>
-          </a> */}
+                <button
+                  onClick={() => setShowMore(!showMore)}
+                  className="text-sm tracking-wider font-mono font-medium text-black inline-flex items-center gap-1 relative group"
+                >
+                  {showMore ? "SHOW LESS" : "KNOW MORE"}
+                  <svg
+                    width="18"
+                    height="18"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    className={`transition-transform duration-300 ${showMore ? "rotate-180" : "translate-x-0 group-hover:translate-x-1"}`}
+                  >
+                    <path
+                      d="M5 12h14M12 5l7 7-7 7"
+                      stroke="currentColor"
+                      strokeWidth="1.5"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                  </svg>
+                  <span className="absolute left-0 -bottom-1 w-0 h-[1.5px] bg-black transition-all duration-300 group-hover:w-full"></span>
+                </button>
+              </div>
+            </div>
           </div>
         </motion.div>
 
-        {/* Right: stats */}
         <motion.div
-          className="grid grid-cols-1 sm:grid-cols-3 gap-4"
           initial={{ opacity: 0, y: 12 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.9, delay: 0.12 }}
+          className="w-full"
         >
-          {/* Card 1 */}
-          <StatCard title="Positive Feedback" desc="Over 98% positive feedback from satisfied guests, reflecting our commitment to exceptional service and memorable stays." value={`${positive}%`} highlight />
+          <div className="w-full px-6 lg:px-24 mt-10">
+            <div className="flex items-center gap-2 mb-4">
+              <svg
+                className="w-5 h-5"
+                viewBox="0 0 64 64"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <circle cx="32" cy="32" r="22" stroke="black" strokeWidth="6" />
+                <circle cx="32" cy="32" r="13" fill="black" />
+              </svg>
+              <span className="text-[16px] font-mono tracking-wider font-bold text-slate-800 uppercase">
+                By the numbers
+              </span>
+            </div>
 
-          {/* Card 2 */}
-          <StatCard title="Years of Expertise" desc="Backed by 15 years of industry expertise, we turn every stay into a seamless experience." value={`${years}+`} />
-
-          {/* Card 3 */}
-          <StatCard title="Happy Clients" desc="Proudly serving 25K+ happy travelers who've trusted us to find their perfect stay." value={`${formatClients(clients)}+`} />
+            <div className="w-full max-w-[1400px] mx-auto grid grid-cols-1 sm:grid-cols-3 gap-6">
+              <StatCard
+                title="Positive Feedback"
+                desc="Over 98% positive feedback from satisfied guests, reflecting our commitment to exceptional service and memorable stays."
+                value={`${positive}%`}
+                highlight
+              />
+              <StatCard
+                title="Years of Expertise"
+                desc="Backed by 15 years of industry expertise, we turn every stay into a seamless experience."
+                value={`${years}+`}
+              />
+              <StatCard
+                title="Happy Clients"
+                desc="Proudly serving 25K+ happy travelers who've trusted us to find their perfect stay."
+                value={`${formatClients(clients)}+`}
+              />
+            </div>
+          </div>
         </motion.div>
       </div>
     </section>
@@ -112,21 +154,16 @@ function StatCard({ title, desc, value, highlight = false }: { title: string; de
         <div className="flex-1">
           <div className="text-5xl sm:text-6xl font-extrabold leading-none text-ink flex items-baseline gap-2">
             <span>{value}</span>
-            <span className="text-gold text-2xl" aria-hidden>
-              +
-            </span>
+           
           </div>
         </div>
       </div>
-
       <h3 className="mt-6 text-lg font-semibold text-ink">{title}</h3>
       <p className="mt-2 text-sm text-gray-600">{desc}</p>
     </div>
   )
 }
 
-// Easing
 function easeOutCubic(t: number) {
   return 1 - Math.pow(1 - t, 3)
 }
-
