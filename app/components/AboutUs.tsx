@@ -33,8 +33,10 @@ export default function AboutUs() {
   }
 
   return (
-    <section className="max-w-full px-6 md:px-8 py-16 bg-[#ffffff]">
+    <section className="w-full px-4 sm:px-6 md:px-8 py-16 bg-[#ffffff]">
       <div className="flex flex-col gap-10 items-center">
+
+        {/* About Header */}
         <motion.div
           initial={{ opacity: 0, y: 12 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -42,30 +44,25 @@ export default function AboutUs() {
           transition={{ duration: 0.7 }}
           className="w-full"
         >
-          <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-8 lg:gap-24 px-6 lg:px-24">
+          <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-8 lg:gap-24 px-2 sm:px-6 lg:px-24">
             <div className="flex items-start gap-3">
-              <svg
-                className="w-5 h-5 mt-0.5"
-                viewBox="0 0 64 64"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
+              <svg className="w-5 h-5 mt-0.5" viewBox="0 0 64 64" fill="none">
                 <circle cx="32" cy="32" r="22" stroke="black" strokeWidth="6" />
                 <circle cx="32" cy="32" r="13" fill="black" />
               </svg>
-              <span className="text-[16px] font-mono tracking-wider font-bold text-slate-800 uppercase">
+              <span className="text-sm sm:text-base font-mono tracking-wider font-bold text-slate-800 uppercase">
                 About us
               </span>
             </div>
 
-            <div className="flex-1 ">
-              <h3 className="text-5xl text-gray-300 max-w-[900px] mx-auto font-mono font-medium text-right">
+            <div className="flex-1">
+              <h3 className="text-3xl sm:text-4xl md:text-5xl text-gray-300 max-w-[900px] mx-auto font-mono font-medium text-left md:text-right">
                 The Best Holidays Start Here!
               </h3>
 
               <div className="inline-block mt-4">
                 <p
-                  className={`text-lg font-bold tracking-wider font-mono text-gray-700 max-w-5xl mb-2 transition-all duration-500 ease-in-out ${
+                  className={`text-sm sm:text-base md:text-lg font-bold tracking-wider font-mono text-gray-700 max-w-5xl mb-2 transition-all duration-500 ease-in-out ${
                     showMore ? "line-clamp-none" : "line-clamp-4"
                   }`}
                 >
@@ -74,7 +71,7 @@ export default function AboutUs() {
 
                 <button
                   onClick={() => setShowMore(!showMore)}
-                  className="text-sm tracking-wider font-mono font-medium text-black inline-flex items-center gap-1 relative group"
+                  className="text-xs sm:text-sm tracking-wider font-mono font-medium text-black inline-flex items-center gap-1 relative group"
                 >
                   {showMore ? "SHOW LESS" : "KNOW MORE"}
                   <svg
@@ -84,13 +81,7 @@ export default function AboutUs() {
                     fill="none"
                     className={`transition-transform duration-300 ${showMore ? "rotate-180" : "translate-x-0 group-hover:translate-x-1"}`}
                   >
-                    <path
-                      d="M5 12h14M12 5l7 7-7 7"
-                      stroke="currentColor"
-                      strokeWidth="1.5"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
+                    <path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                   </svg>
                   <span className="absolute left-0 -bottom-1 w-0 h-[1.5px] bg-black transition-all duration-300 group-hover:w-full"></span>
                 </button>
@@ -99,6 +90,7 @@ export default function AboutUs() {
           </div>
         </motion.div>
 
+        {/* Numbers Section */}
         <motion.div
           initial={{ opacity: 0, y: 12 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -106,39 +98,21 @@ export default function AboutUs() {
           transition={{ duration: 0.9, delay: 0.12 }}
           className="w-full"
         >
-          <div className="w-full px-6 lg:px-24 mt-10">
+          <div className="w-full px-2 sm:px-6 lg:px-24 mt-10">
             <div className="flex items-center gap-2 mb-4">
-              <svg
-                className="w-5 h-5"
-                viewBox="0 0 64 64"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
+              <svg className="w-5 h-5" viewBox="0 0 64 64" fill="none">
                 <circle cx="32" cy="32" r="22" stroke="black" strokeWidth="6" />
                 <circle cx="32" cy="32" r="13" fill="black" />
               </svg>
-              <span className="text-[16px] font-mono tracking-wider font-bold text-slate-800 uppercase">
+              <span className="text-sm sm:text-base font-mono tracking-wider font-bold text-slate-800 uppercase">
                 By the numbers
               </span>
             </div>
 
-            <div className="w-full max-w-[1400px] mx-auto grid grid-cols-1 sm:grid-cols-3 gap-6">
-              <StatCard
-                title="Positive Feedback"
-                desc="Over 98% positive feedback from satisfied guests, reflecting our commitment to exceptional service and memorable stays."
-                value={`${positive}%`}
-                highlight
-              />
-              <StatCard
-                title="Years of Expertise"
-                desc="Backed by 15 years of industry expertise, we turn every stay into a seamless experience."
-                value={`${years}+`}
-              />
-              <StatCard
-                title="Happy Clients"
-                desc="Proudly serving 25K+ happy travelers who've trusted us to find their perfect stay."
-                value={`${formatClients(clients)}+`}
-              />
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-[1400px] mx-auto">
+              <StatCard title="Positive Feedback" desc="Backed by 80% satisfied users, we continue to grow with the confidence and trust of our community." value={`${positive}%`} />
+              <StatCard title="Bookings Completed" desc="Crossing 100+ bookings is more than a milestone — it’s a testament to your trust and our dedication." value={`${years}+`} />
+              <StatCard title="Happy Clients" desc="From one to over 150 happy customers — thank you for believing in what we do." value={`${formatClients(clients)}+`} />
             </div>
           </div>
         </motion.div>
@@ -147,19 +121,14 @@ export default function AboutUs() {
   )
 }
 
-function StatCard({ title, desc, value, highlight = false }: { title: string; desc: string; value: string; highlight?: boolean }) {
+function StatCard({ title, desc, value }: { title: string; desc: string; value: string }) {
   return (
-    <div className="bg-muted-bg rounded-2xl p-6 shadow-sm border border-transparent">
-      <div className="flex items-start gap-4">
-        <div className="flex-1">
-          <div className="text-5xl sm:text-6xl font-extrabold leading-none text-ink flex items-baseline gap-2">
-            <span>{value}</span>
-           
-          </div>
-        </div>
+    <div className="bg-[#f2f2f0] font-mono p-6 shadow-sm border rounded-none">
+      <div className="text-4xl sm:text-5xl md:text-6xl font-extrabold text-black">
+        {value}
       </div>
-      <h3 className="mt-6 text-lg font-semibold text-ink">{title}</h3>
-      <p className="mt-2 text-sm text-gray-600">{desc}</p>
+      <h3 className="mt-1 text-base sm:text-lg font-semibold text-black">{title}</h3>
+      <p className="mt-2 text-xs sm:text-sm font-semibold text-gray-600">{desc}</p>
     </div>
   )
 }
